@@ -1,50 +1,152 @@
-# Welcome to your Expo app 👋
+📝 Nota para el Profesor
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Estimado profesor, cordial saludo.
 
-## Get started
+Debido a algunos inconvenientes desafortunados en mi entorno de trabajo, una parte importante del proyecto original se perdió y tuve que reiniciar la estructura desde cero. Sin embargo, ya retomé completamente el proceso y estoy avanzando nuevamente paso a paso.
 
-1. Install dependencies
+Aunque el repositorio actualmente no alcanza aún el 40% del desarrollo esperado, continuaré realizando commits progresivos y frecuentes, subiendo avances por secciones (interfaces, integración de API, CRUD, login, etc.) hasta completar el proyecto de la mejor manera posible y abarcar lo mas posible para el momento en que puedas realizar la evaluación, y gracias
 
-   ```bash
-   npm install
-   ```
+Agradezco su comprensión y tiempo mientras continúo subiendo los cambios.
 
-2. Start the app
+🔷 Documento Técnico v1.0 — Veterinaria_GestionCRUDAPI_app
 
-   ```bash
-   npx expo start
-   ```
+Aplicación móvil desarrollada en React Native (Expo), orientada a la gestión de una veterinaria y al consumo de una API pública que retorna información e imágenes de animales.
 
-In the output, you'll find options to open the app in a
+ 1. Descripción General del Sistema
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+El sistema es una aplicación móvil híbrida que permite:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Consultar animales desde una API externa (imágenes + datos).
 
-## Get a fresh project
+Registrar, listar, editar y eliminar productos o elementos (módulo CRUD).
 
-When you're ready, run:
+Autenticación básica mediante Login (versión inicial).
 
-```bash
-npm run reset-project
-```
+Navegación estructurada por pantallas.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Posible escalabilidad a un sistema administrativo completo para una veterinaria.
 
-## Learn more
+El propósito académico es aplicar conceptos de backend–frontend, consumo de APIs, manejo de estado y lógica de negocio.
 
-To learn more about developing your project with Expo, look at the following resources:
+ 2. Características Principales
+✔ 2.1 Consumo de API de Animales
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Obtiene imágenes y datos mediante HTTP GET.
 
-## Join the community
+Se integra desde el frontend usando fetch o Axios.
 
-Join our community of developers creating universal apps.
+Se mostrará una lista con:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Foto
+
+Nombre
+
+Especie
+
+Datos básicos
+
+✔ 2.2 Sistema CRUD (Create, Read, Update, Delete)
+
+Módulo para gestionar productos, medicamentos o elementos administrativos.
+
+Funcionalidades CRUD:
+
+Create → agregar un producto/animal/insumo.
+
+Read → listar todos los registros almacenados.
+
+Update → editar los datos desde un formulario.
+
+Delete → eliminar un elemento de la base de datos.
+
+El CRUD actualmente apunta a un backend local (ej. http://localhost:8081/). En futuras versiones podrá migrar a Firestore o MySQL.
+
+✔ 2.3 Sistema de Login
+
+Autenticación básica (usuario/contraseña).
+
+Validaciones simples en frontend.
+
+Estructura escalable para integrar Firebase Authentication si se requiere posteriormente.
+
+ 3. Arquitectura del Proyecto
+🔷 Patrón general:
+Frontend (Expo / React Native)
+   ↳ Hooks
+   ↳ Componentes
+   ↳ Pantallas (screens)
+   ↳ Estilos globales
+API externa (animales)
+Backend CRUD (local / Express)
+
+🔷 Tipo de arquitectura:
+
+➡ Arquitectura basada en módulos, organizada en carpetas que representan funciones específicas del sistema.
+
+ 4. Estructura del Proyecto
+RestauranteTaller2 /  (será renombrado)
+│
+├─ src/
+│  ├─ assets/          → imágenes, íconos
+│  ├─ components/      → componentes reutilizables
+│  ├─ constants/       → theme.ts y configuración general
+│  ├─ hooks/           → lógica reutilizada
+│  ├─ screens/         → AddProduct, ProductList, Login, etc.
+│  ├─ styles/          → estilos globales
+│  └─ .config/         → firebase.js (opcional)
+│
+├─ App.js
+├─ package.json
+├─ README.md
+└─ app.json
+
+🔷 5. Requerimientos Técnicos
+
+Node.js 18+
+
+Expo SDK 51+
+
+Android Studio o dispositivo físico
+
+Git para versionamiento
+
+PowerShell para comandos
+
+ 6. Flujo de Versionamiento Git (Ramas aconsejadas)
+
+Se recomienda trabajar con:
+
+main                → rama estable
+dev                 → rama de desarrollo
+feature/api         → consumo de API
+feature/crud        → CRUD completo
+feature/login       → Login
+feature/ui          → diseño y estilos
+
+
+Comandos clave:
+
+git checkout -b feature/api
+git add .
+git commit -m "Consumo de API implementado"
+git push -u origin feature/api
+
+ 7. Cómo ejecutar el proyecto
+npm install
+npx expo start
+
+ 8. Estado Actual del Proyecto (v1.0)
+
+Estructura base en Expo ✔
+
+Carpetas y arquitectura definidas ✔
+
+CRUD inicial creado ✔
+
+API de animales integrada ✔
+
+Login en progreso ✔
+
+Documentación técnica creada ✔
+
+Fin del Documento Técnico v1.0
